@@ -7,3 +7,4 @@ RUN npm run build --prod
 
 FROM nginx:1.20.1-alpine
 COPY --from=0 /app/dist/webapp /usr/share/nginx/html
+COPY --from=0 /app/nginx.conf /etc/nginx/conf.d/default.conf
