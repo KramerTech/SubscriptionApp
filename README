@@ -2,14 +2,16 @@ This is a simple webapp to magange user subscriptions to various newletters.
 
 Administrators can add new users and newsletters, and manage* all users' subscriptions.
 *Can't add users to newsletters because I didn't get that far.
-Login as: admin@neatnews.com/admin
+Login as: **admin@neatnews.com** / **admin**
 
 Normal users can only unsubscribe from their current subscriptions.
-All default seeded user passwords are "password".
-One non-admin email is "testuser@gmail.com", but all user emails can be seen in the admin account.
+All default seeded user passwords are **"password"**.
+One non-admin email is "test_user@gmail.com", but all user emails can be seen in the admin account.
 
-To launch, clone this repo onto a machine with docker and bash installed, and run start.sh
-Testing the backend has not been containerized, but can be done with "npm run dev" from the backend directory. Requires postgres container to be running.
+To launch, clone this repo onto a machine with docker, docker-compose, and bash installed, and run start.sh
+
+Testing the backend has not been containerized, but can be done locally with "npm run test" from the backend directory. Requires postgres container to be running.
+Testing runs with nyc for code coverage.
 
 The UI will be available on localhost:8080
 The backend will be on localhost:4500, and a health endpoint should be live at its root.
