@@ -5,13 +5,13 @@ import { AuthService } from "src/app/auth.service";
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-	constructor(public auth: AuthService) {}
+    constructor(public auth: AuthService) {}
 
-	intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-		if (this.auth.jwt) {
-			console.log("INTERCEPT");
-			req = req.clone({ headers: req.headers.set("Authorization", this.auth.jwt) });
-		}
-		return next.handle(req);
-	}
+    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        if (this.auth.jwt) {
+            console.log("INTERCEPT");
+            req = req.clone({ headers: req.headers.set("Authorization", this.auth.jwt) });
+        }
+        return next.handle(req);
+    }
 }

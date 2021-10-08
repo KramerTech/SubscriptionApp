@@ -13,14 +13,14 @@ services:
         ports:
             - "8080:80"
     postgres:
-        image: 'postgres'
+        image: "postgres"
         restart: always
         command: -p 5800
         environment:
             - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=postgres
         ports:
-            - '5800:5800'
+            - "5800:5800"
         volumes:
             - ./database/data:/var/lib/postgresql/data/
             - ./database/seed.sql:/docker-entrypoint-initdb.d/create_tables.sql

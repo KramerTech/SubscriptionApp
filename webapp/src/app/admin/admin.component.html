@@ -1,36 +1,39 @@
 <mat-card *ngIf="admin">
-	<mat-card-title class="justify-content-between">
-		<div>Users</div>
-		<div class="clickable material-icons" (click)="addUser()">
-			add
-		</div>
-	</mat-card-title>
-	<mat-divider></mat-divider>
-	<mat-card-content>
-		<mat-action-list>
-			<button mat-list-item *ngFor="let user of users"
-				[class.font-weight-bold]="selectedUser === user.subscriber_id" (click)="selectUser(user.subscriber_id)">
-				{{user.email}}
-			</button>
-		</mat-action-list>
-	</mat-card-content>
+    <mat-card-title class="justify-content-between">
+        <div>Users</div>
+        <div class="clickable material-icons" (click)="addUser()">add</div>
+    </mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <mat-action-list>
+            <button
+                mat-list-item
+                *ngFor="let user of users"
+                [class.font-weight-bold]="selectedUser === user.subscriber_id"
+                (click)="selectUser(user.subscriber_id)"
+            >
+                {{ user.email }}
+            </button>
+        </mat-action-list>
+    </mat-card-content>
 </mat-card>
 <mat-card class="flex-grow-1 ml-3">
-	<mat-card-title class="justify-content-between">
-		<div>{{admin ? "Newsletters" : "My Subscriptions"}}</div>
-		<div *ngIf="selectedUser === undefined" class="clickable material-icons" (click)="addLetter()">
-			add
-		</div>
-	</mat-card-title>
-	<mat-divider></mat-divider>
-	<mat-card-content>
-		<mat-action-list>
-			<button [disabled]="selectedUser === undefined" mat-list-item *ngFor="let letter of letters" (click)="deleteSub(letter.newsletter_id, letter.name)">
-				{{letter.name}}
-			</button>
-		</mat-action-list>
-		<mat-list-item class="p-2" *ngIf="!admin && !letters.length">
-			You don't have any subscriptions.
-		</mat-list-item>
-	</mat-card-content>
+    <mat-card-title class="justify-content-between">
+        <div>{{ admin ? "Newsletters" : "My Subscriptions" }}</div>
+        <div *ngIf="selectedUser === undefined" class="clickable material-icons" (click)="addLetter()">add</div>
+    </mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <mat-action-list>
+            <button
+                [disabled]="selectedUser === undefined"
+                mat-list-item
+                *ngFor="let letter of letters"
+                (click)="deleteSub(letter.newsletter_id, letter.name)"
+            >
+                {{ letter.name }}
+            </button>
+        </mat-action-list>
+        <mat-list-item class="p-2" *ngIf="!admin && !letters.length"> You don't have any subscriptions. </mat-list-item>
+    </mat-card-content>
 </mat-card>
